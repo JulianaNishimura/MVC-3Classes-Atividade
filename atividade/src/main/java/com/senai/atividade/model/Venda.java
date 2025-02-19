@@ -8,8 +8,7 @@ import lombok.Setter;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 
-@Getter
-@Setter
+
 @NoArgsConstructor
 @AllArgsConstructor
 public class Venda {
@@ -18,4 +17,36 @@ public class Venda {
 
     public ArrayList<Produto> produtos;
     public Cliente cliente;
+
+    public int getIdVenda() {
+        return idVenda;
+    }
+
+    public void setIdVenda(int idVenda) {
+        this.idVenda = idVenda;
+    }
+
+    public ZonedDateTime getDataVenda() {
+        return dataVenda;
+    }
+
+    public void setDataVenda(ZonedDateTime dataVenda) {
+        this.dataVenda = dataVenda;
+    }
+
+    public ArrayList<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(ArrayList<Produto> produtos) {
+        this.produtos = produtos;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
 }
