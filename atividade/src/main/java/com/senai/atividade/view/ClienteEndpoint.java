@@ -10,7 +10,12 @@ import java.util.List;
 @RequestMapping("/clientes")
 public class ClienteEndpoint {
 
-    public ControladorCliente cc = new ControladorCliente();
+    private final ControladorCliente cc;
+
+    public ClienteEndpoint(ControladorCliente cc) {
+        this.cc = cc;
+    }
+
     @GetMapping
     public List<Cliente> getInformationsClientes() {
         return cc.listarClientes();

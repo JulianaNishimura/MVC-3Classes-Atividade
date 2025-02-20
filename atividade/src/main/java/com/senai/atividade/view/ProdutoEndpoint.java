@@ -14,7 +14,11 @@ import java.util.List;
 @RequestMapping("/produtos")
 public class ProdutoEndpoint {
 
-    public ControladorProduto cp = new ControladorProduto();
+    private final ControladorProduto cp;
+
+    public ProdutoEndpoint(ControladorProduto cp) {
+        this.cp = cp;
+    }
 
     //produtos
     @GetMapping

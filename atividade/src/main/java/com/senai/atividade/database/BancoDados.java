@@ -3,10 +3,12 @@ package com.senai.atividade.database;
 import com.senai.atividade.model.Cliente;
 import com.senai.atividade.model.Produto;
 import com.senai.atividade.model.Venda;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class BancoDados {
     private List<Produto> produtos;
     private List<Cliente> clientes;
@@ -84,9 +86,35 @@ public class BancoDados {
 
 
     //Venda
-    public void insertVenda(Venda v){
-        vendas.add(v);
+    public void insertVenda(Venda v) {
+        boolean clienteExiste = false;
+        int produtosEncontrados = 0;
+
+        for (Cliente c : clientes) {
+            if (c.getIdCliente() == v.getCliente().getIdCliente()) {
+                clienteExiste = true;
+                break;
+            }
+        }
+
+        if(clienteExiste){
+            for (Produto produtoVenda : v.getProdutos()) {
+                for (Produto p : produtos) {
+                    if (p.getIdProduto() == produtoVenda.getIdProduto()) {
+                        produtosEncontrados++;
+                        break;
+                    }
+                }
+            }
+
+            if (produtosEncontrados == v.getProdutos().size()) {
+                vendas.add(v);
+            }
+        }
+
     }
+
+
 
     public Venda findOneVenda(int id){
         for (Venda v : vendas){

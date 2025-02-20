@@ -4,12 +4,18 @@ import com.senai.atividade.database.BancoDados;
 import com.senai.atividade.model.Cliente;
 import com.senai.atividade.model.Produto;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 @NoArgsConstructor
 public class ControladorCliente {
-    private BancoDados banco = new BancoDados();
+    private final BancoDados banco;
+
+    public ControladorCliente(BancoDados banco) {
+        this.banco = banco;
+    }
 
     public List<Cliente> listarClientes() {
         return banco.findAllCliente();

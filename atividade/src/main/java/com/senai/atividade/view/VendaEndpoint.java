@@ -9,7 +9,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/vendas")
 public class VendaEndpoint {
-    public ControladorVenda cv = new ControladorVenda();
+    private final ControladorVenda cv;
+
+    public VendaEndpoint(ControladorVenda cv) {
+        this.cv = cv;
+    }
 
     @GetMapping
     public List<Venda> getInformationsVendas(){
