@@ -3,17 +3,13 @@ package com.senai.atividade.view;
 import com.senai.atividade.controller.ControladorVenda;
 import com.senai.atividade.model.Venda;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
 @RequestMapping("/vendas")
 public class VendaEndpoint {
-    private final ControladorVenda cv;
 
-    public VendaEndpoint(ControladorVenda cv) {
-        this.cv = cv;
-    }
+    ControladorVenda cv = new ControladorVenda();
 
     @GetMapping
     public List<Venda> getInformationsVendas(){
@@ -21,8 +17,9 @@ public class VendaEndpoint {
     }
 
     @PostMapping
-    public void postInformationsVendas(@RequestBody Venda venda){
-        cv.postarVenda(venda);
+    public boolean postInformationsVendas(@RequestBody Venda venda){
+
+        return cv.postarVenda(venda);
     }
 
     @PutMapping

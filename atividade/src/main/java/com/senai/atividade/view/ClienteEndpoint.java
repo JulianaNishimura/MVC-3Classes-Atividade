@@ -3,18 +3,13 @@ package com.senai.atividade.view;
 import com.senai.atividade.controller.ControladorCliente;
 import com.senai.atividade.model.Cliente;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
 @RequestMapping("/clientes")
 public class ClienteEndpoint {
 
-    private final ControladorCliente cc;
-
-    public ClienteEndpoint(ControladorCliente cc) {
-        this.cc = cc;
-    }
+    ControladorCliente cc = new ControladorCliente();
 
     @GetMapping
     public List<Cliente> getInformationsClientes() {

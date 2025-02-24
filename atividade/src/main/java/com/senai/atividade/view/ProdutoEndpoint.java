@@ -1,24 +1,15 @@
 package com.senai.atividade.view;
 
-import com.senai.atividade.controller.ControladorCliente;
 import com.senai.atividade.controller.ControladorProduto;
-import com.senai.atividade.controller.ControladorVenda;
-import com.senai.atividade.model.Cliente;
 import com.senai.atividade.model.Produto;
-import com.senai.atividade.model.Venda;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
 @RequestMapping("/produtos")
 public class ProdutoEndpoint {
 
-    private final ControladorProduto cp;
-
-    public ProdutoEndpoint(ControladorProduto cp) {
-        this.cp = cp;
-    }
+    ControladorProduto cp = new ControladorProduto();
 
     //produtos
     @GetMapping
