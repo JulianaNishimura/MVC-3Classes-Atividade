@@ -7,7 +7,8 @@ import java.util.List;
 public class BancoCliente {
 
     private static BancoCliente instance;
-    private List<Cliente> clientes;
+    private List<Cliente> clientes = new ArrayList<>();
+
     public static BancoCliente getInstance() {
         if (instance == null) {
             instance = new BancoCliente();

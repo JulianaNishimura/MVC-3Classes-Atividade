@@ -7,8 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BancoVenda {
-    private List<Venda> vendas;
+
+    private List<Venda> vendas = new ArrayList<>();
     private static BancoVenda instance;
+
     public static BancoVenda getInstance() {
         if (instance == null) {
             instance = new BancoVenda();
@@ -16,14 +18,9 @@ public class BancoVenda {
         return instance;
     }
 
-    public BancoVenda() {
-        this.vendas = new ArrayList<>();
-    }
     public void insertVenda(Venda v) {
         vendas.add(v);
     }
-
-
 
     public Venda findOneVenda(int id){
         for (Venda v : vendas){

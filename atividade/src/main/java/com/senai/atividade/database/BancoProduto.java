@@ -5,17 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BancoProduto {
+
     private static BancoProduto instance;
-    private List<Produto> produtos;
+    private List<Produto> produtos = new ArrayList<>();
+
     public static BancoProduto getInstance() {
         if (instance == null) {
             instance = new BancoProduto();
         }
         return instance;
-    }
-
-    public BancoProduto() {
-        this.produtos = new ArrayList<>();
     }
 
     public void insertProduto(Produto p){
